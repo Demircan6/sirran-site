@@ -45,116 +45,264 @@
   <header>
     <p class="eyebrow">Sirran</p>
     <h1>Privacy Policy</h1>
-    <p class="meta"><strong>Effective date:</strong> 16 July 2026</p>
+    <p class="meta"><strong>Effective date:</strong> 18 July 2026</p>
     <p class="meta"><strong>App:</strong> Sirran (iPhone, Apple Watch, Android phone, Wear OS)</p>
     <p class="meta"><strong>Publisher:</strong> Baris Demircan</p>
     <p class="meta"><strong>Contact:</strong> <a href="mailto:barisdemircan@outlook.com.tr">barisdemircan@outlook.com.tr</a></p>
   </header>
 
   <div class="callout">
-    <strong>The worship promise:</strong> everything you do in worship — prayer
-    logs, Quran reading and notes, du'a book, tasbih counts, qada ledger, zakat
-    figures, voice recordings — stays on your device. Sirran has no user
-    accounts, no analytics, and no server of its own that receives your data.
-    The <strong>free version shows ads</strong> served by Google AdMob, and
-    subscriptions are processed by Google Play; those two Google services
-    process some data as described below. <strong>Sirran Plus removes ads
-    entirely</strong> — for subscribers the advertising SDK is never even
-    started.
+    Sirran has no user accounts, advertising SDK, advertising identifier, or
+    first-party analytics service. Prayer calculations, Qibla, bundled Quran
+    reading, and tasbih data are processed on your device. Optional Nearby
+    Mosques, official prayer-timetable, store, and Quran Foundation
+    online-content features make only the limited requests described below.
   </div>
 
-  <h2>What Sirran never collects</h2>
+  <h2>What the publisher does not collect directly</h2>
   <ul>
-    <li>We do <strong>not</strong> collect, store, or transmit your worship data off your device — not your prayer marks, Quran positions or margin notes, du'as, tasbih counts, qada ledger, hifz records, zakat figures, or recordings.</li>
-    <li>We do <strong>not</strong> use analytics or tracking SDKs, and we have no user accounts or sign-in.</li>
-    <li>We do <strong>not</strong> operate a backend: apart from the services named in this policy (AdMob ads in the free version, Google Play for purchases, OpenStreetMap for the optional Nearby Mosques lookup), the app makes no network requests.</li>
-    <li>We do <strong>not</strong> sell your data. We never see it in the first place.</li>
+    <li>We do <strong>not</strong> operate a backend account system or sign-in.</li>
+    <li>We do <strong>not</strong> upload or retain a Quran reading-history profile, saved bookmarks, notes, prayer log, tasbih count, voice recordings, zakat figures, calendar entries, or keyboard input on a publisher-operated server. A user-invoked QF online-content request sends only the requested public-content identifier and ordinary connection data through the planned proxy, as described below.</li>
+    <li>We do <strong>not</strong> sell personal data. Third parties receive data only through the user-invoked network and store-purchase flows described below.</li>
+    <li>We do <strong>not</strong> use user data to build advertising profiles; sell, rent, mine, or repurpose Quran Foundation user data; or use notes, reflections, or other user-generated content to train artificial-intelligence models without the user's prior, separate, and explicit consent.</li>
   </ul>
 
-  <h2>Advertising in the free version (Google AdMob)</h2>
-  <p>The free version of Sirran is supported by ads served through
-  <strong>Google AdMob</strong>. To serve and measure ads, Google's advertising
-  SDK processes data on Google's side, which can include your device's
-  <strong>advertising identifier</strong>, IP address, coarse location derived
-  from it, and ad-interaction data. Where you have consented (or outside
-  regions that require consent), ads may be <strong>personalized</strong> based
-  on this data. Details are in
-  <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> and
-  <a href="https://policies.google.com/technologies/partner-sites">how Google
-  uses data from partner apps</a>.</p>
+  <h2>No advertising or analytics SDK</h2>
+  <p>The Android, iPhone, Apple Watch, and Wear OS builds contain no advertising
+  SDK, analytics SDK, or advertising-ID permission. Sirran Plus supports
+  independent development; it does not remove advertising because advertising
+  is absent for everyone.</p>
+
+  <h2>Quran Foundation ecosystem and Content APIs</h2>
+  <p>Sirran is an independent product and is not an official application of,
+  affiliated with, or endorsed by Quran Foundation. Sirran's optional online
+  Quran-content feature is designed to use the <strong>Quran Foundation Content
+  APIs</strong> to retrieve public Quran text, translations, tafsir, recitation
+  audio, timing, and related metadata from the
+  <a href="https://quran.com/">Quran.com</a> ecosystem.
+  <a href="https://quranreflect.com/">QuranReflect</a> is part of Quran
+  Foundation's wider ecosystem; Sirran does not access QuranReflect accounts,
+  private reflections, bookmarks, notes, reading history, or other Quran
+  Foundation user data.</p>
+
+  <p>This integration remains disabled until Quran Foundation grants access and
+  the production security controls described below are in place. Sirran does
+  not use end-user QF OAuth/OIDC, sign users into Quran Foundation accounts, or
+  request user-data scopes. The planned backend will use the OAuth2
+  <code>client_credentials</code> flow to obtain an application access token
+  with the minimum Content API scope; it will not receive end-user OAuth tokens.
+  A public-content request identifies only the requested surah, ayah,
+  recitation, translation, or tafsir resource. Sirran does not intentionally
+  attach precise location, an advertising identifier, contact information,
+  prayer history, bookmarks, notes, or a reading-history profile. Normal
+  internet delivery still exposes ordinary connection data, such as IP address
+  and request time, to the Sirran-controlled proxy and its hosting provider.</p>
+
+  <p>The planned proxy is intended to be hosted on Cloudflare Workers so Quran
+  Foundation API credentials remain server-side and are never embedded in an
+  app. The proxy
+  may temporarily cache public QF content and metadata for no longer than seven
+  days under standard access. Long-term offline QF recitation downloads remain
+  disabled unless Quran Foundation grants express written permission and any
+  required commercial/content licence. This policy will be updated before any
+  QF OAuth, account, bookmark, note, reflection, history-sync, or other QF
+  user-data feature is released.</p>
+
+  <h2>Sensitive religious information</h2>
+  <p>Prayer preferences, reading or recitation history, notes, reflections,
+  worship logs, tasbih counts, and similar data may reveal religious beliefs and
+  can be sensitive personal data. Sirran keeps saved versions of these items on
+  the device and does not create or retain a user-linked reading-history or
+  worship profile on a publisher server. An opted-in QF public-content request
+  transiently processes the requested resource identifier and ordinary
+  connection data as described above. If a future feature needs
+  publisher-server collection or synchronization of saved religious
+  information, it will remain off until the user gives a separate, explicit,
+  affirmative opt-in that is not bundled into general acceptance of the Terms
+  of Use. Data will then be limited to the disclosed feature and purpose.</p>
+
+  <p>Before the QF-powered online-content feature is enabled, Sirran will
+  present a separate consent screen that explains the requested content
+  identifiers and ordinary connection data sent through the proxy. The feature
+  will make no QF request until the user takes an affirmative opt-in action. The
+  user will be able to withdraw that consent in Settings, which disables future
+  QF requests and clears device-local QF content. The shared proxy cache
+  contains only public content, is keyed by content resource rather than a user
+  or device, and expires within the standard seven-day limit. The feature
+  remains disabled until this consent control is implemented and tested.</p>
+
+  <h2>Nearby Mosques (optional, Android only)</h2>
+  <p>When you open Nearby Mosques, Sirran rounds the device coordinate to four
+  decimal places (about 11 metres of latitude resolution) and sends it to public
+  OpenStreetMap Overpass instances to find mosques progressively within 2 km,
+  5 km, and at most 10 km. Google Play classifies this four-decimal coordinate
+  as <strong>Precise location</strong>, even though it is rounded. The app may
+  try more than one public instance when a server is unavailable. This happens
+  only when you use that feature. The publisher does not store the coordinate
+  or the results on a server. On the phone, an in-process cache keeps the
+  four-decimal coordinate key, search radius, result list, and cache time. A
+  result is treated as fresh for 10 minutes and may be shown as explicitly
+  stale after a network failure for up to 24 hours. This cache is not written
+  to disk and disappears when the app process ends. There is no Sirran account.
+  Tapping a result opens your maps app for directions.</p>
+
+  <h2>Official prayer timetable (optional)</h2>
+  <p>The default calculation works locally. If you explicitly select an official
+  timetable and confirm a supported place, Android sends only that public place
+  identifier, the requested date range, and its time zone to the configured
+  DeenMate timetable adapter over HTTPS. It does not send your GNSS coordinate,
+  prayer history, Quran activity, microphone audio, or an advertising identifier.
+  Authority credentials are never embedded in the app. Hosting and network
+  providers necessarily process connection data such as an IP address to deliver
+  an internet response.</p>
+
+  <h2>Store purchases</h2>
+  <p>On Android, Google Play Billing is used to offer and restore Sirran Plus.
+  Google handles account and payment information under its own terms. Sirran
+  stores the resulting entitlement locally and does not receive or store your
+  payment-card details. The current iPhone launch configuration has in-app
+  purchases disabled and is submitted as a free app with no in-app purchases;
+  StoreKit support in the code is inactive in that build.</p>
+
+  <h2>Third-party services and recipients</h2>
+  <p>Sirran does not disclose worship activity for advertising or unrelated
+  profiling. The following services may receive only the information needed for
+  the user-requested feature:</p>
   <ul>
-    <li><strong>In the EEA, UK, and Switzerland</strong> the app first shows Google's consent form (UMP). If you decline personalization, any ads shown are limited accordingly.</li>
-    <li><strong>Ads never interrupt worship.</strong> No ad is shown over the Quran reader, during tasbih or adhkar, or around alarms and prayer alerts, and ads are frequency-limited.</li>
-    <li><strong>Your worship data plays no part in ads.</strong> Nothing you do in the app — what you read, log, or count — is shared with Google or used for ad targeting.</li>
-    <li><strong>Sirran Plus subscribers see no ads</strong>, and the advertising SDK is not initialized for them at all. You can also limit personalization system-wide in your device's Google settings ("Delete advertising ID" / "Opt out of Ads Personalization").</li>
+    <li><strong>Quran Foundation / Quran.com</strong> (planned, disabled pending approval): the Sirran proxy requests public Quran content using resource identifiers. See <a href="https://quran.com/en/privacy">Quran.com Privacy</a>.</li>
+    <li><strong>Cloudflare</strong> (planned QF content proxy; optional timetable adapter when enabled): processes ordinary connection/request metadata and temporarily hosted content needed to deliver the response. See the <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a>.</li>
+    <li><strong>Public OpenStreetMap Overpass operators</strong> (Nearby Mosques only): receive the rounded coordinate and ordinary connection data described above. Public instances may be operated independently. See the <a href="https://osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation Privacy Policy</a> and the policy published by the selected instance, where available.</li>
+    <li><strong>Google</strong> (Android/Wear OS): operates Google Play Billing, the Play store, and the Wear OS Data Layer described in this policy. See the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
+    <li><strong>Apple</strong> (iPhone/Apple Watch): operates the App Store and the operating-system services used for permissions and paired-device connectivity. See the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</li>
+    <li><strong>GitHub Pages</strong>: hosts this public policy and support site. Visiting the site is subject to the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</li>
   </ul>
-
-  <h2>Sirran Plus subscriptions (Google Play)</h2>
-  <p>Sirran Plus is an optional subscription sold through
-  <strong>Google Play Billing</strong>. Payment is handled entirely by Google
-  Play: we never see your card details, name, or address. The app receives only
-  the subscription's status (a purchase token) to unlock Plus features, and your
-  <strong>purchase history</strong> is processed by Google under
-  <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.
-  You can manage or cancel the subscription any time in the Play Store; the
-  worship core of Sirran is free and remains fully functional without it.</p>
-
-  <h2>Nearby Mosques (optional)</h2>
-  <p>When you open Nearby Mosques, Sirran sends your approximate location to
-  OpenStreetMap's public Overpass service to find mosques near you, and shows the
-  results in the app. This happens <strong>only</strong> when you use that feature.
-  We do not store your location or the results, there is no account, and no
-  tracking is involved. Tapping a result opens your maps app for directions.</p>
+  <p>Where a provider processes personal data on Sirran's behalf, the
+  corresponding feature will be enabled only with appropriate data-protection
+  terms and instructions that prohibit unrelated use and misuse of Quranic
+  content. Public endpoints that act independently are recipients/controllers
+  under their own policies rather than Sirran subprocessors. Sirran does not
+  send Quran Foundation user data to OpenStreetMap, Google, Apple, or GitHub for
+  unrelated use. The QF-powered feature stays disabled until any required
+  legally binding processor terms and Islamic-content protection instructions
+  have been verified.</p>
 
   <h2>On-device data and permissions</h2>
   <p>The app uses the following only on your device, to provide its features:</p>
   <ul>
-    <li><strong>Location</strong> (optional): Used on your device to calculate accurate prayer times and the Qibla direction. If you do not grant location permission, the app falls back to a manually selected city. Your location is not stored by us and is never sent off the device by Sirran itself. (If ads are shown, Google may derive coarse location from your IP address as described above.)</li>
-    <li><strong>Notifications</strong> (optional): Used to deliver local prayer-time and feature reminders scheduled on your device, in your device's language. There is no remote push; no notification content is sent to a server.</li>
-    <li><strong>Microphone and speech recognition</strong> (optional, off by default): Used for the opt-in voice features. Voice Tasbih and the Hifz Voice Coach use <strong>on-device recognition only</strong> — they are disabled when on-device recognition is unavailable and never fall back to network recognition, and they do not store audio. The In Your Voice library records du'a recordings <strong>you choose to make</strong>; these files are stored only on your device and are never uploaded.</li>
-    <li><strong>Camera</strong> (optional, Android): Used solely by the Qibla Horizon and crescent-watch views as a live viewfinder behind the on-screen markers. The preview only passes through the screen — nothing is captured, recorded, stored, or transmitted, and the camera is active only while that screen is open.</li>
+    <li><strong>Location</strong> (optional): Used on your device to calculate accurate prayer times and the Qibla direction. If you do not grant location permission, you may explicitly select a fixed city; the app does not silently substitute one. A validated recent fix may be cached on your device for up to six hours so alarms, widgets, and the watch use the same location; it is not stored on a publisher server. On Android, location can leave the phone in two explicit product paths: a four-decimal coordinate is sent to Overpass when you open Nearby Mosques, and the exact effective phone coordinate can be synchronized to your paired Wear OS watch as described below. Selecting an official timetable sends the confirmed public place identifier described above, not the GNSS coordinate.</li>
+    <li><strong>Notifications</strong> (optional): Used to deliver local prayer-time reminders scheduled on your device. No notification content is sent to a server.</li>
+    <li><strong>Voice Tasbih microphone and speech recognition</strong> (optional, off by default, iPhone and Android): Voice Tasbih starts only after your opt-in and the system permission. Recognition runs <strong>on the device only</strong>; the feature is disabled when on-device recognition is not available and never falls back to network recognition. Its live recognition audio is not saved or transmitted off your device.</li>
+    <li><strong>In Your Voice recordings</strong> (optional, Android only): When you explicitly start a recording in the Voice Library, Sirran saves the resulting <code>.m4a</code> file in the app's private local storage. You can play, manage, and delete these recordings from the library. They are not uploaded, synced, or sent to a third party.</li>
+    <li><strong>Qibla camera preview</strong> (optional, Android only): If you open Qibla Horizon and grant camera permission, Sirran displays a live preview behind the Qibla overlay. The app has no photo/video capture or image-analysis use case and does not record, save, or transmit the preview.</li>
+    <li><strong>Fajr Guardian activity recognition</strong> (optional, Android only): If you enable the walk-to-dismiss option and grant activity-recognition permission, Sirran counts step-detector events while the alarm screen is open. These events are used only to dismiss that alarm and are not saved or transmitted.</li>
+    <li><strong>Wear OS rakah motion assistant</strong> (optional): While its screen is active, the watch processes accelerometer readings and, when available, gravity and gyroscope readings in memory. Raw motion samples are not saved or sent through the Wear Data Layer. Only the local session count, target, status, and save time are stored in the watch app's private preferences so an interrupted session can resume.</li>
     <li><strong>Do Not Disturb access</strong> (optional, off by default, Android): Used solely for the opt-in Quiet Hours feature, which silences your phone around each prayer and restores it afterwards. This is a device setting change only; no information is read, stored, or transmitted.</li>
     <li><strong>Calendar</strong> (optional, off by default): if you enable "prayer times in your calendar", the app writes prayer events into a separate, device-local calendar that never syncs to any account. Turning the feature off removes the events. The app does not read your other calendars' contents in this version.</li>
-    <li><strong>Zakat Vault</strong> (optional): the wealth figures you enter for the zakat calculator are stored only on your device, in an encrypted file protected by your phone's hardware keystore. They are never transmitted, and we could not read them even if we wanted to — there is no server.</li>
+    <li><strong>Existing local Zakat Vault data</strong> (Android): If figures were entered in a prior or reviewed build, they remain only on your device in an encrypted file protected by the phone's hardware keystore. The current release UI is hidden pending religious review. The figures are never transmitted, and there is no Zakat account or sync service.</li>
     <li><strong>Sirran Keyboard</strong> (optional, Android): if you enable the bundled phrase keyboard in system settings, it only inserts the phrase you tap into the text field. It does not read, log, store, or transmit anything you type.</li>
-    <li><strong>Apple Watch / Wear OS sync:</strong> Prayer preferences, tasbih counts, the qada total, and your wird routine's name are shared between the phone and the watch on your devices / your Apple or Google account's device sync. This is device-to-device data, not collected by us.</li>
+    <li><strong>Apple Watch sync:</strong> Prayer preferences and tasbih state are shared between your iPhone and Apple Watch using Apple's device connectivity. Sirran does not send that data to a publisher server.</li>
+    <li><strong>Wear OS Data Layer sync:</strong> The Android phone sends persistent Google Play services Data Items to paired Wear OS devices. These can include the exact effective phone coordinate, its accuracy and capture time (<code>capturedAt</code>), selected location/city, time zone, prayer method and madhab, tasbih label/count/target, remaining qada total, and active wird label/target. A Data Item is persistent until it is replaced or deleted and can be buffered while devices are disconnected. Google's <a href="https://developer.android.com/training/wearables/data/overview">Data Layer security overview</a> and <a href="https://developer.android.com/training/wearables/data/client-types">client-type reference</a> state that only the same package signed with the same certificate can access the channel; direct Bluetooth uses standard Bluetooth encryption, and cloud-routed transfers are end-to-end encrypted. Google Play services may use Google-owned servers when Bluetooth is unavailable. Sirran does not operate a server for this sync.</li>
   </ul>
 
-  <h2>Quran content</h2>
-  <p>The Quran text in the app is "Tanzil Quran Text" (Simple and Uthmani) from
-  the Tanzil Project (tanzil.net), used under the Creative Commons Attribution
-  3.0 license with in-app attribution. The bundled translations are "The Meaning
-  of the Glorious Koran" by Marmaduke Pickthall (1930, English) and the original
-  "Hak Dini Kur'an Dili" meal by Elmalili Muhammed Hamdi Yazir (1935–1939,
-  Turkish), both in the public domain and shown with in-app attribution. All
-  texts are bundled with the app and read on your device; using the Quran reader
-  does not transmit any data, and no ad is ever shown over it.</p>
+  <h2>Bundled Quran content</h2>
+  <p>The Quran text in the app is "Tanzil Quran Text (Simple)" from the Tanzil
+  Project (tanzil.net), used under the Creative Commons Attribution 3.0 license
+  with in-app attribution. The bundled translation is "The Meaning of the
+  Glorious Koran" by Marmaduke Pickthall (1930, English), which is in the public
+  domain and shown with in-app attribution. No Turkish meal is currently
+  bundled, so Turkish device locales show the Arabic Quran text without a meal.
+  Opening and reading this <strong>bundled</strong> corpus does not make a
+  network request. Optional online Quran Foundation content, when approved and
+  enabled, follows the separate data flow and seven-day cache limit described
+  above.</p>
+  <p>Sirran preserves Quran text unchanged, presents excerpts in context, and
+  shows source attribution. QF content is not used for advertising profiles,
+  biometric identification, or machine-learning training.</p>
 
   <h2>Children's privacy</h2>
-  <p>Sirran is a religious utility app and is not directed at children. It does
-  not knowingly collect personal information from anyone, including children.
-  The free version contains advertising served by Google AdMob, and an optional
-  subscription is offered through Google Play; there are no social or
-  user-generated-content features.</p>
+  <p>Sirran is not directed to children under 13. It does not ask for a date of
+  birth, has no sign-up flow, and therefore cannot accept an underage account
+  registration. It does not knowingly collect children's personal data.
+  Parents and guardians should supervise a child's use of religious content
+  and optional network features.</p>
 
   <h2>Data security and retention</h2>
-  <p>Sirran operates no server, so there is no Sirran-side storage of your
-  information. App settings and worship data are stored locally on your device
-  and are removed when you uninstall the app. Data processed by Google (ad
-  serving in the free version, purchase processing for subscriptions) is held by
-  Google under its own policies and retention rules; Sirran cannot access it
-  beyond the subscription status needed to unlock Plus.</p>
+  <p>Sirran operates no first-party account or worship-history server. App
+  settings (such as your selected city, madhab, and tasbih counts) are stored
+  locally and are removed when you delete them in the app, clear app storage,
+  or uninstall the app. The Nearby Mosques process cache has the 10-minute
+  fresh/24-hour stale limits described above. Wear OS Data Items have Google
+  Play services' persistent lifecycle described above and are overwritten when
+  Sirran publishes newer state; they are not a publisher-server copy.</p>
+
+  <p>All Sirran-controlled network endpoints, including the planned QF proxy,
+  must require TLS 1.2 or later. Before QF access is enabled, QF credentials
+  must remain only in the server secret store, access must be least-privilege,
+  temporary server caches must be encrypted at rest by
+  the hosting platform, and production secrets must rotate at least every 90
+  days and immediately after suspected exposure. These controls are aligned
+  with the QF Developer Privacy Packet's <strong>Security Rule 6.9</strong>.
+  Sirran will begin responding to an actual or suspected API security incident
+  in less than 24 hours and will report it to Quran Foundation no later than 24
+  hours after detection when QF systems or data may be affected.</p>
+
+  <p>Before activation, the proxy must disable application-level request-history
+  logging or configure it so any IP address/resource-identifier combination is
+  minimized and retained for no longer than seven days for security and abuse
+  prevention. It must not add a Sirran user ID, device ID, advertising ID, or
+  reading-history identifier to QF requests or logs.</p>
+
+  <p>Under standard QF access, temporary QF content is deleted or refreshed
+  within seven days. Sirran receives no QF account/user data and therefore has
+  no QF user-data backup today. If a future server feature stores user data, a
+  verified deletion request will hard-delete it from live systems within 30
+  days and from backups within 90 days, unless a shorter legal period or lawful
+  retention duty applies. Other requests are handled under each recipient's
+  published retention and security practices.</p>
+
+  <h2>Your rights and controls</h2>
+  <p>You can deny or revoke optional operating-system permissions, disable
+  optional features, delete feature data using the available in-app controls,
+  clear app storage, or uninstall Sirran. Depending on applicable law, you may
+  ask to access, correct, delete, restrict, object to, or obtain a copy of
+  personal data controlled by the publisher. Send a verified request to the
+  contact below; the publisher will respond within 30 days.</p>
+
+  <p>Sirran does not use end-user QF OAuth/OIDC or associate local data with a
+  QF account. The planned backend application token is not an end-user token,
+  so there is currently no user-granted Sirran QF token to revoke, and deleting
+  a Quran Foundation account does not leave linked Sirran server data. End-user
+  revocation controls, an OAuth revocation link, and an in-app server-data
+  deletion mechanism will be added before any QF account/user-data integration
+  ships.</p>
+
+  <h2>International data transfers</h2>
+  <p>Optional network providers may process ordinary connection data outside
+  your country. Where Sirran selects a processor and cross-border transfer
+  safeguards are legally required, Sirran will rely on the European
+  Commission's Standard Contractual Clauses or an equivalent lawful mechanism
+  and will comply with applicable local transfer laws. Independently operated
+  public endpoints and app stores process data under their own policies and
+  legal roles.</p>
 
   <h2>Changes to this policy</h2>
-  <p>If the app's data practices change, this policy and the app store data
-  disclosures will be updated before that change ships. This version (16 July
-  2026) added the advertising and subscription sections when the free tier
-  became ad-supported and Sirran Plus went on sale.</p>
+  <p>If the app's data practices change, this policy and relevant app-store
+  disclosures will be updated before the change ships. The effective date
+  above will change. Material changes will be announced through an in-app
+  notice and, where the publisher has a user's contact address for a requested
+  service, by email when appropriate.</p>
 
   <h2>Contact</h2>
-  <p>Questions about this policy: <a href="mailto:barisdemircan@outlook.com.tr">barisdemircan@outlook.com.tr</a>.</p>
+  <p>Questions or privacy-rights requests:</p>
+  <ul>
+    <li><strong>Email:</strong> <a href="mailto:barisdemircan@outlook.com.tr">barisdemircan@outlook.com.tr</a></li>
+    <li><strong>Postal correspondence:</strong> Baris Demircan, Istanbul, Türkiye. Request the current full service address by email before sending postal correspondence.</li>
+    <li><strong>Response target:</strong> within 30 days after a verifiable request is received.</li>
+  </ul>
+  <p>See also the <a href="/terms/">Sirran Terms of Use</a> and
+  <a href="/support/">Support page</a>.</p>
 
-  <footer>© 2026 Baris Demircan · Sirran</footer>
+  <footer><a href="/">Sirran</a> · <a href="/terms/">Terms of Use</a> · <a href="/support/">Support</a> · © 2026 Baris Demircan</footer>
 </div>
 </body>
 </html>
