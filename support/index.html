@@ -49,8 +49,10 @@
 
   <div class="callout">
     Sirran keeps core daily worship close at hand on iPhone, Apple Watch, Android,
-    and Wear OS: accurate prayer times, Qibla direction, a tasbih counter, and a
-    Quran reader — privacy-first, with no ads, no accounts, and no tracking.
+    and Wear OS: prayer times, Qibla direction, a tasbih counter, and a Quran
+    reader — privacy-first and account-free. Every tier is free of advertising
+    SDKs and advertising identifiers. Sirran Plus supports independent,
+    privacy-first development.
   </div>
 
   <h2>Getting help</h2>
@@ -62,18 +64,23 @@
   <h2>Frequently asked questions</h2>
 
   <h3>How are prayer times calculated?</h3>
-  <p>Using an Umm al-Qura–style calculation with your chosen madhab (Shafi or
-  Hanafi Asr) and an optional Ramadan Isha adjustment. You can use your device
-  location or pick a city manually.</p>
+  <p>Using your selected published calculation convention, madhab (Shafi or
+  Hanafi Asr), high-latitude handling, and location. You can use device location
+  or pick a city manually. Where supported, an explicitly selected official
+  timetable is shown with its authority, place, coverage, and freshness; local
+  calculation is never mislabeled as an official schedule.</p>
 
   <h3>Why do I need to allow location?</h3>
   <p>Location is used on your device to compute accurate prayer times and the
-  Qibla direction. If you decline, the app uses a manually selected city instead.
-  Your location never leaves your device.</p>
+  Qibla direction. If you decline, select a fixed city instead. Prayer and Qibla
+  calculations stay on-device; the optional Nearby Mosques feature sends a rounded
+  location to OpenStreetMap only when you use it.</p>
 
   <h3>How do prayer notifications work?</h3>
-  <p>They are local reminders scheduled on your device. They are delivered within
-  a short window around each prayer time and require notification permission.</p>
+  <p>They are local reminders scheduled on your device. On Android, exact delivery
+  uses the user-granted Alarms &amp; reminders special access; without it, Sirran
+  falls back to an honest inexact window. Notification permission is also needed.
+  The Trust Center shows the active mode and latest reliability event.</p>
 
   <h3>Is the Qibla accurate?</h3>
   <p>The Qibla bearing is computed from your location; on-device the
@@ -88,17 +95,26 @@
   <h3>Where does the Quran text come from?</h3>
   <p>"Tanzil Quran Text (Simple)" from the Tanzil Project
   (<a href="https://tanzil.net">tanzil.net</a>), used under Creative Commons
-  Attribution 3.0 with in-app attribution.</p>
+  Attribution 3.0 with in-app attribution. An optional online Quran Foundation
+  Content API experience is planned but remains disabled pending approval and
+  the security controls described in the Privacy Policy.</p>
 
   <h3>Do you collect my data?</h3>
-  <p>No. See the <a href="/privacy">Privacy Policy</a>.</p>
+  <p>Sirran does not require an account or use product analytics or advertising
+  SDKs. Core worship features run on-device. Optional Nearby Mosques sends a
+  rounded location to OpenStreetMap when opened; an explicitly selected official
+  timetable sends only the confirmed place ID, date range, and time zone to the
+  configured DeenMate adapter. See the <a href="/privacy">Privacy Policy</a>.</p>
 
   <h2>Privacy</h2>
-  <p>Sirran does not collect personal data, use analytics/ads/tracking, or
-  require an account. Full details in the
+  <p>Sirran does not require an account or use product analytics, advertising
+  SDKs, or an advertising identifier. Full details in the
   <a href="/privacy">Privacy Policy</a>.</p>
 
-  <footer>© 2026 Baris Demircan · Sirran</footer>
+  <h2>Legal</h2>
+  <p>Use of Sirran is governed by the <a href="/terms/">Terms of Use</a>.</p>
+
+  <footer><a href="/">Sirran</a> · <a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Use</a> · © 2026 Baris Demircan</footer>
 </div>
 </body>
 </html>
