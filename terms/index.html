@@ -45,7 +45,7 @@
   <header>
     <p class="eyebrow">Sirran</p>
     <h1>Terms of Use</h1>
-    <p class="meta"><strong>Effective date:</strong> 18 July 2026</p>
+    <p class="meta"><strong>Effective date:</strong> 25 July 2026</p>
     <p class="meta"><strong>App:</strong> Sirran (iPhone, Apple Watch, Android phone, Wear OS)</p>
     <p class="meta"><strong>Publisher:</strong> Baris Demircan</p>
     <p class="meta"><strong>Contact:</strong> <a href="mailto:barisdemircan@outlook.com.tr">barisdemircan@outlook.com.tr</a></p>
@@ -77,18 +77,28 @@
 
   <h2>4. Quran content and Quran Foundation conditions</h2>
   <p>Sirran identifies the source and licence of bundled Quran text and
-  translations inside the app. The optional online Quran-content feature is
-  designed to use Quran Foundation Content APIs for public Quran text,
-  translations, tafsir, recitation audio, timing, and metadata. It remains
-  disabled until access and the required production controls are approved.</p>
-  <p>When Quran Foundation content is available through Sirran:</p>
+  translations inside the app. On Android, the optional online Quran reader uses
+  Quran Foundation Content APIs for the Dar Al-Salam Center Turkish translation
+  (<code>translations:210</code>) and Mishari Rashid al-‘Afasy ayah recitation
+  (<code>recitations:7</code>). Quran Foundation provided conditional written
+  authorization for the requested commercial in-app use and long-term offline
+  retention on 19 July 2026. Separate Production credentials were received and
+  provisioned server-side, and the consent-gated Production private/no-store
+  reader is active. Retained Content Sync, shared Quran-content caching, a
+  public content manifest, and long-term offline Quran Foundation downloads
+  remain disabled because the current change-driven stream does not provide a
+  complete initial catalogue and the long-offline-device interpretation remains
+  unresolved. This authorization does not make Sirran an official or endorsed
+  Quran Foundation application.</p>
+  <p>For Quran Foundation content delivered through Sirran:</p>
   <ul>
     <li>Quran text must remain unchanged. Excerpts must preserve their original context and meaning and must not misrepresent the source.</li>
     <li>QF content or raw API data may not be exported, scraped, indexed, resold, sublicensed, or redistributed outside the integral Sirran end-user experience.</li>
     <li>Users may not bypass authentication, access controls, rate limits, quotas, or other technical restrictions, or attempt to extract content outside documented API responses.</li>
     <li>QF content must not be used to promote hate, extremism, misinformation, unlawful or sexual material, or any context that disparages Islam or misrepresents the Quran.</li>
     <li>QF content and user data must not be used to build advertising profiles, biometric identifiers, or machine-learning models without the required prior written and user consent.</li>
-    <li>Unless Quran Foundation expressly permits a longer period in writing, Sirran does not cache or store QF content for longer than seven days. Long-term offline QF recitation downloads are not enabled under standard API access.</li>
+    <li>All Quran Foundation Quran content, including reading and recitation, remains available regardless of whether the user has a paid Sirran subscription.</li>
+    <li>QF content may be retained offline for longer than seven days only while Sirran checks Quran Foundation data for changes at least once every seven days and promptly updates affected locally stored content. Long-term offline QF downloads remain disabled until a complete initial catalogue path and that Content Sync flow pass operational testing and the fully-offline-device interpretation is resolved or handled by a stricter fail-closed rule.</li>
     <li>Commercial redistribution or use of QF content or raw API data outside the ordinary in-app experience requires a separate written commercial licence from Quran Foundation.</li>
   </ul>
   <p>Quran Foundation may change, suspend, or revoke API access. If the

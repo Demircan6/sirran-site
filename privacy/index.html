@@ -45,7 +45,7 @@
   <header>
     <p class="eyebrow">Sirran</p>
     <h1>Privacy Policy</h1>
-    <p class="meta"><strong>Effective date:</strong> 18 July 2026</p>
+    <p class="meta"><strong>Effective date:</strong> 25 July 2026</p>
     <p class="meta"><strong>App:</strong> Sirran (iPhone, Apple Watch, Android phone, Wear OS)</p>
     <p class="meta"><strong>Publisher:</strong> Baris Demircan</p>
     <p class="meta"><strong>Contact:</strong> <a href="mailto:barisdemircan@outlook.com.tr">barisdemircan@outlook.com.tr</a></p>
@@ -62,7 +62,7 @@
   <h2>What the publisher does not collect directly</h2>
   <ul>
     <li>We do <strong>not</strong> operate a backend account system or sign-in.</li>
-    <li>We do <strong>not</strong> upload or retain a Quran reading-history profile, saved bookmarks, notes, prayer log, tasbih count, voice recordings, zakat figures, calendar entries, or keyboard input on a publisher-operated server. A user-invoked QF online-content request sends only the requested public-content identifier and ordinary connection data through the planned proxy, as described below.</li>
+    <li>We do <strong>not</strong> upload or retain a Quran reading-history profile, saved bookmarks, notes, prayer log, tasbih count, voice recordings, zakat figures, calendar entries, or keyboard input on a publisher-operated server. A user-invoked QF online-content request sends only the requested public-content identifier and ordinary connection data through the active Production private/no-store reader proxy, as described below.</li>
     <li>We do <strong>not</strong> sell personal data. Third parties receive data only through the user-invoked network and store-purchase flows described below.</li>
     <li>We do <strong>not</strong> use user data to build advertising profiles; sell, rent, mine, or repurpose Quran Foundation user data; or use notes, reflections, or other user-generated content to train artificial-intelligence models without the user's prior, separate, and explicit consent.</li>
   </ul>
@@ -75,38 +75,49 @@
 
   <h2>Quran Foundation ecosystem and Content APIs</h2>
   <p>Sirran is an independent product and is not an official application of,
-  affiliated with, or endorsed by Quran Foundation. Sirran's optional online
-  Quran-content feature is designed to use the <strong>Quran Foundation Content
-  APIs</strong> to retrieve public Quran text, translations, tafsir, recitation
-  audio, timing, and related metadata from the
+  affiliated with, or endorsed by Quran Foundation. On Android, Sirran's
+  optional online Quran reader uses the <strong>Quran Foundation Content
+  APIs</strong> to retrieve the Dar Al-Salam Center Turkish translation
+  (<code>translations:210</code>) and Mishari Rashid al-‘Afasy ayah recitation
+  (<code>recitations:7</code>) from the
   <a href="https://quran.com/">Quran.com</a> ecosystem.
   <a href="https://quranreflect.com/">QuranReflect</a> is part of Quran
   Foundation's wider ecosystem; Sirran does not access QuranReflect accounts,
   private reflections, bookmarks, notes, reading history, or other Quran
   Foundation user data.</p>
 
-  <p>This integration remains disabled until Quran Foundation grants access and
-  the production security controls described below are in place. Sirran does
-  not use end-user QF OAuth/OIDC, sign users into Quran Foundation accounts, or
-  request user-data scopes. The planned backend will use the OAuth2
-  <code>client_credentials</code> flow to obtain an application access token
-  with the minimum Content API scope; it will not receive end-user OAuth tokens.
-  A public-content request identifies only the requested surah, ayah,
-  recitation, translation, or tafsir resource. Sirran does not intentionally
+  <p>Quran Foundation provided conditional written authorization for the
+  requested commercial in-app use and long-term offline retention on 19 July
+  2026. Separate Production credentials were issued and provisioned server-side
+  on 23 July 2026. The Production private/no-store reader is active; retained
+  Content Sync, public content manifests and long-term Quran Foundation
+  downloads remain disabled for the reasons below. Sirran does not use end-user
+  QF OAuth/OIDC, sign users into Quran Foundation accounts, or request user-data
+  scopes. The backend uses the OAuth2 <code>client_credentials</code> flow to
+  obtain an application access token with the minimum Content API scope; it
+  does not receive end-user OAuth tokens. A public-content request identifies
+  only the requested surah, ayah, translation or recitation resource. Sirran
+  does not intentionally
   attach precise location, an advertising identifier, contact information,
   prayer history, bookmarks, notes, or a reading-history profile. Normal
   internet delivery still exposes ordinary connection data, such as IP address
   and request time, to the Sirran-controlled proxy and its hosting provider.</p>
 
-  <p>The planned proxy is intended to be hosted on Cloudflare Workers so Quran
-  Foundation API credentials remain server-side and are never embedded in an
-  app. The proxy
-  may temporarily cache public QF content and metadata for no longer than seven
-  days under standard access. Long-term offline QF recitation downloads remain
-  disabled unless Quran Foundation grants express written permission and any
-  required commercial/content licence. This policy will be updated before any
-  QF OAuth, account, bookmark, note, reflection, history-sync, or other QF
-  user-data feature is released.</p>
+  <p>Sirran's Production reader runs on Cloudflare Workers so Quran Foundation
+  credentials remain server-side and are never embedded in the app. Its
+  responses are marked <code>private, no-store</code>; the Android reader does
+  not persist the fetched meal or audio. Under Quran Foundation's written
+  conditions, all Quran Foundation Quran content, including reading and
+  recitation, remains available regardless of whether a user has a paid
+  subscription. Content retained offline for longer than seven days would
+  require Sirran to check Quran Foundation data for changes at least once every
+  seven days and promptly update affected locally stored content. Retained
+  Content Sync, shared content caching, public manifests and long-term offline
+  QF downloads remain disabled because the current change-driven Content Sync
+  stream does not provide a complete initial catalogue and the
+  long-offline-device interpretation is unresolved. This policy will be updated
+  before any QF OAuth, account, bookmark, note, reflection, history-sync, or
+  other QF user-data feature is released.</p>
 
   <h2>Sensitive religious information</h2>
   <p>Prayer preferences, reading or recitation history, notes, reflections,
@@ -121,15 +132,18 @@
   affirmative opt-in that is not bundled into general acceptance of the Terms
   of Use. Data will then be limited to the disclosed feature and purpose.</p>
 
-  <p>Before the QF-powered online-content feature is enabled, Sirran will
-  present a separate consent screen that explains the requested content
-  identifiers and ordinary connection data sent through the proxy. The feature
-  will make no QF request until the user takes an affirmative opt-in action. The
-  user will be able to withdraw that consent in Settings, which disables future
-  QF requests and clears device-local QF content. The shared proxy cache
-  contains only public content, is keyed by content resource rather than a user
-  or device, and expires within the standard seven-day limit. The feature
-  remains disabled until this consent control is implemented and tested.</p>
+  <p>The Android implementation includes a separate consent screen that
+  explains the requested content identifiers and ordinary connection data sent
+  through the proxy. The feature makes no QF request unless a default-off
+  release switch, a safe proxy endpoint and the user's affirmative opt-in action are
+  all active. The user can withdraw that consent in Settings, which disables
+  future QF requests and clears device-local QF consent state without removing
+  the bundled Quran or local reading data. The active Production reader returns
+  <code>private, no-store</code> responses and does not populate retained
+  Content Sync or a shared Quran-content cache. The request route is keyed by
+  content resource rather than a user or device. Retained/offline QF features
+  remain disabled while the complete bootstrap and Content Sync strategy are
+  incomplete.</p>
 
   <h2>Nearby Mosques (optional, Android only)</h2>
   <p>When you open Nearby Mosques, Sirran rounds the device coordinate to four
@@ -150,7 +164,7 @@
   <p>The default calculation works locally. If you explicitly select an official
   timetable and confirm a supported place, Android sends only that public place
   identifier, the requested date range, and its time zone to the configured
-  DeenMate timetable adapter over HTTPS. It does not send your GNSS coordinate,
+  Sirran timetable adapter over HTTPS. It does not send your GNSS coordinate,
   prayer history, Quran activity, microphone audio, or an advertising identifier.
   Authority credentials are never embedded in the app. Hosting and network
   providers necessarily process connection data such as an IP address to deliver
@@ -169,8 +183,8 @@
   profiling. The following services may receive only the information needed for
   the user-requested feature:</p>
   <ul>
-    <li><strong>Quran Foundation / Quran.com</strong> (planned, disabled pending approval): the Sirran proxy requests public Quran content using resource identifiers. See <a href="https://quran.com/en/privacy">Quran.com Privacy</a>.</li>
-    <li><strong>Cloudflare</strong> (planned QF content proxy; optional timetable adapter when enabled): processes ordinary connection/request metadata and temporarily hosted content needed to deliver the response. See the <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a>.</li>
+    <li><strong>Quran Foundation / Quran.com</strong> (active only for the consent-gated Android Production reader): the Sirran proxy requests the selected public Turkish translation or recitation using Quran resource identifiers. Retained Content Sync and offline QF downloads remain disabled. See <a href="https://quran.com/en/privacy">Quran.com Privacy</a>.</li>
+    <li><strong>Cloudflare</strong> (active QF private/no-store reader proxy; optional timetable adapter when enabled): processes ordinary connection/request metadata needed to deliver the response. See the <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a>.</li>
     <li><strong>Public OpenStreetMap Overpass operators</strong> (Nearby Mosques only): receive the rounded coordinate and ordinary connection data described above. Public instances may be operated independently. See the <a href="https://osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation Privacy Policy</a> and the policy published by the selected instance, where available.</li>
     <li><strong>Google</strong> (Android/Wear OS): operates Google Play Billing, the Play store, and the Wear OS Data Layer described in this policy. See the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
     <li><strong>Apple</strong> (iPhone/Apple Watch): operates the App Store and the operating-system services used for permissions and paired-device connectivity. See the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</li>
@@ -182,9 +196,9 @@
   content. Public endpoints that act independently are recipients/controllers
   under their own policies rather than Sirran subprocessors. Sirran does not
   send Quran Foundation user data to OpenStreetMap, Google, Apple, or GitHub for
-  unrelated use. The QF-powered feature stays disabled until any required
-  legally binding processor terms and Islamic-content protection instructions
-  have been verified.</p>
+  unrelated use. Any future retained-content or QF account/user-data feature
+  stays disabled until its additional legal, security and Islamic-content
+  protection controls have been verified.</p>
 
   <h2>On-device data and permissions</h2>
   <p>The app uses the following only on your device, to provide its features:</p>
@@ -210,11 +224,12 @@
   with in-app attribution. The bundled translation is "The Meaning of the
   Glorious Koran" by Marmaduke Pickthall (1930, English), which is in the public
   domain and shown with in-app attribution. No Turkish meal is currently
-  bundled, so Turkish device locales show the Arabic Quran text without a meal.
-  Opening and reading this <strong>bundled</strong> corpus does not make a
-  network request. Optional online Quran Foundation content, when approved and
-  enabled, follows the separate data flow and seven-day cache limit described
-  above.</p>
+  bundled, so offline Turkish reading shows the Arabic Quran text without a
+  meal. Opening and reading this <strong>bundled</strong> corpus does not make a
+  network request. On Android, after affirmative consent, the active Production
+  reader can fetch the Turkish <code>translations:210</code> meal and
+  <code>recitations:7</code> audio through the separate private/no-store data
+  flow described above.</p>
   <p>Sirran preserves Quran text unchanged, presents excerpts in context, and
   shows source attribution. QF content is not used for advertising profiles,
   biometric identification, or machine-learning training.</p>
@@ -235,29 +250,29 @@
   Play services' persistent lifecycle described above and are overwritten when
   Sirran publishes newer state; they are not a publisher-server copy.</p>
 
-  <p>All Sirran-controlled network endpoints, including the planned QF proxy,
-  must require TLS 1.2 or later. Before QF access is enabled, QF credentials
-  must remain only in the server secret store, access must be least-privilege,
-  temporary server caches must be encrypted at rest by
-  the hosting platform, and production secrets must rotate at least every 90
-  days and immediately after suspected exposure. These controls are aligned
+  <p>All Sirran-controlled network endpoints, including the active QF reader
+  proxy, require HTTPS. QF credentials remain only in the server secret store
+  and access is least-privilege. Production secrets must rotate at least every
+  90 days and immediately after suspected exposure. These controls are aligned
   with the QF Developer Privacy Packet's <strong>Security Rule 6.9</strong>.
   Sirran will begin responding to an actual or suspected API security incident
   in less than 24 hours and will report it to Quran Foundation no later than 24
   hours after detection when QF systems or data may be affected.</p>
 
-  <p>Before activation, the proxy must disable application-level request-history
-  logging or configure it so any IP address/resource-identifier combination is
-  minimized and retained for no longer than seven days for security and abuse
-  prevention. It must not add a Sirran user ID, device ID, advertising ID, or
-  reading-history identifier to QF requests or logs.</p>
-
-  <p>Under standard QF access, temporary QF content is deleted or refreshed
-  within seven days. Sirran receives no QF account/user data and therefore has
-  no QF user-data backup today. If a future server feature stores user data, a
-  verified deletion request will hard-delete it from live systems within 30
-  days and from backups within 90 days, unless a shorter legal period or lawful
-  retention duty applies. Other requests are handled under each recipient's
+  <p>The reader proxy does not add a Sirran user ID, device ID, advertising ID,
+  or reading-history identifier to QF requests. It processes the requested
+  resource identifier plus ordinary connection data such as IP address and
+  request time; any IP address/resource-identifier combination visible to the
+  infrastructure is handled by Cloudflare and Quran Foundation under their
+  published policies. Reader responses are <code>private, no-store</code>, and
+  Sirran does not maintain a retained QF content cache or QF user-data backup
+  today. Authorized offline QF content may
+  be introduced only while Sirran checks Quran Foundation data for changes at
+  least once every seven days and promptly updates affected copies. If a future
+  server feature stores user data, a verified deletion request will hard-delete
+  it from live systems within 30 days and from backups within 90 days, unless a
+  shorter legal period or lawful retention duty applies. Other requests are
+  handled under each recipient's
   published retention and security practices.</p>
 
   <h2>Your rights and controls</h2>
@@ -269,7 +284,7 @@
   contact below; the publisher will respond within 30 days.</p>
 
   <p>Sirran does not use end-user QF OAuth/OIDC or associate local data with a
-  QF account. The planned backend application token is not an end-user token,
+  QF account. The backend application token is not an end-user token,
   so there is currently no user-granted Sirran QF token to revoke, and deleting
   a Quran Foundation account does not leave linked Sirran server data. End-user
   revocation controls, an OAuth revocation link, and an in-app server-data
