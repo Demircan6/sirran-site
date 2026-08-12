@@ -45,7 +45,7 @@
   <header>
     <p class="eyebrow">Sirran</p>
     <h1>Terms of Use</h1>
-    <p class="meta"><strong>Effective date:</strong> 30 July 2026</p>
+    <p class="meta"><strong>Effective date:</strong> 6 August 2026</p>
     <p class="meta"><strong>App:</strong> Sirran (iPhone, Apple Watch, Android phone, Wear OS)</p>
     <p class="meta"><strong>Publisher:</strong> Baris Demircan</p>
     <p class="meta"><strong>Contact:</strong> <a href="mailto:barisdemircan@outlook.com.tr">barisdemircan@outlook.com.tr</a></p>
@@ -81,7 +81,10 @@
   offline-download feature uses Quran Foundation Content APIs for the Dar
   Al-Salam Center Turkish translation (<code>translations:210</code>) and
   Mishari Rashid al-‘Afasy ayah recitation
-  (<code>recitations:7</code>). Quran Foundation provided written authorization
+  (<code>recitations:7</code>). A separately gated, Arabic-only reader surface
+  may retrieve Tafsir al-Muyassar (<code>tafsirs:16</code>,
+  <code>ar-tafsir-muyassar</code>) only after the user selects an ayah. Quran
+  Foundation provided written authorization
   for the requested commercial in-app use and long-term offline retention on
   19 July 2026 and expressly confirmed the direct-snapshot, daily Content Sync,
   and extended device-retention implementation on 30 July 2026. Production
@@ -91,15 +94,25 @@
   daily with the same resource filter. Android access remains limited to
   explicitly enabled builds after affirmative consent. This authorization does
   not make Sirran an official or endorsed Quran Foundation application.</p>
+  <p>On 6 August 2026 Quran Foundation separately confirmed that Sirran may
+  display Tafsir al-Muyassar ID <code>16</code> inside its commercial/freemium
+  application without a separate third-party licence. The source is
+  <span lang="ar" dir="rtl">التفسير الميسر</span>, prepared by a committee
+  of scholars under the supervision of the King Fahd Glorious Quran Printing
+  Complex. The tafsir surface is not retained content: its selected-ayah
+  response is ephemeral and <code>private, no-store</code>, with no cache,
+  offline copy, history or account linkage.</p>
   <p>For Quran Foundation content delivered through Sirran:</p>
   <ul>
     <li>Quran text must remain unchanged. Excerpts must preserve their original context and meaning and must not misrepresent the source.</li>
+    <li>Quran Foundation requested one localized visible credit near Tafsir al-Muyassar and clarified that it is not a formal licence condition. Sirran nevertheless commits to show <span lang="ar" dir="rtl">التفسير الميسر — مجمع الملك فهد لطباعة المصحف الشريف</span> on the Arabic surface, or “Tafsir al-Muyassar — King Fahd Glorious Quran Printing Complex” in a corresponding English locale or document. Sirran must not use Quran Foundation/Quran.com logos or imply affiliation.</li>
+    <li>A grouped tafsir record must disclose its complete covered ayah range. Presentation markup may be removed and whitespace normalized, but the words may not be changed, translated, abridged, summarized, or rewritten.</li>
     <li>QF content or raw API data may not be exported, scraped, indexed, resold, sublicensed, or redistributed outside the integral Sirran end-user experience.</li>
     <li>Users may not bypass authentication, access controls, rate limits, quotas, or other technical restrictions, or attempt to extract content outside documented API responses.</li>
     <li>QF content must not be used to promote hate, extremism, misinformation, unlawful or sexual material, or any context that disparages Islam or misrepresents the Quran.</li>
     <li>QF content and user data must not be used to build advertising profiles, biometric identifiers, or machine-learning models without the required prior written and user consent.</li>
-    <li>All Quran Foundation Quran content, including reading and recitation, remains available regardless of whether the user has a paid Sirran subscription.</li>
-    <li>QF content may remain usable on a device that is offline for longer than seven days. Sirran checks Quran Foundation data daily on its backend. When the device reconnects, the app synchronizes as soon as reasonably possible and applies reported updates, invalidations, and removals. Audio is retained only after a user-started in-app download and may not be exposed or shared as a standalone download outside Sirran.</li>
+    <li>All Quran Foundation Quran content, including reading, recitation and tafsir, remains available regardless of whether the user has a paid Sirran subscription. Tafsir al-Muyassar contains no advertising, paid upsell, or subscription-only benefit.</li>
+    <li>The approved retained translation and recitation content may remain usable on a device that is offline for longer than seven days. Sirran checks Quran Foundation data daily on its backend. When the device reconnects, the app synchronizes as soon as reasonably possible and applies reported updates, invalidations, and removals. Audio is retained only after a user-started in-app download and may not be exposed or shared as a standalone download outside Sirran. Tafsir al-Muyassar is not included in this retained flow and is unavailable offline.</li>
     <li>Commercial redistribution or use of QF content or raw API data outside the ordinary in-app experience requires a separate written commercial licence from Quran Foundation.</li>
   </ul>
   <p>Quran Foundation may change, suspend, or revoke API access. If the

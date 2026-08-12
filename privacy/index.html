@@ -45,7 +45,7 @@
   <header>
     <p class="eyebrow">Sirran</p>
     <h1>Privacy Policy</h1>
-    <p class="meta"><strong>Effective date:</strong> 30 July 2026</p>
+    <p class="meta"><strong>Effective date:</strong> 6 August 2026</p>
     <p class="meta"><strong>App:</strong> Sirran (iPhone, Apple Watch, Android phone, Wear OS)</p>
     <p class="meta"><strong>Publisher:</strong> Baris Demircan</p>
     <p class="meta"><strong>Contact:</strong> <a href="mailto:barisdemircan@outlook.com.tr">barisdemircan@outlook.com.tr</a></p>
@@ -78,8 +78,10 @@
   affiliated with, or endorsed by Quran Foundation. On Android, Sirran's
   optional online Quran reader uses the <strong>Quran Foundation Content
   APIs</strong> to retrieve the Dar Al-Salam Center Turkish translation
-  (<code>translations:210</code>) and Mishari Rashid al-‘Afasy ayah recitation
-  (<code>recitations:7</code>) from the
+  (<code>translations:210</code>), Mishari Rashid al-‘Afasy ayah recitation
+  (<code>recitations:7</code>), and—only in an explicitly enabled build and
+  resolved Arabic reader—the user-selected Tafsir al-Muyassar
+  (<code>tafsirs:16</code>, <code>ar-tafsir-muyassar</code>) from the
   <a href="https://quran.com/">Quran.com</a> ecosystem.
   <a href="https://quranreflect.com/">QuranReflect</a> is part of Quran
   Foundation's wider ecosystem; Sirran does not access QuranReflect accounts,
@@ -98,7 +100,10 @@
   user's affirmative opt-in action. The backend uses the OAuth2
   <code>client_credentials</code> flow for application access and does not
   receive an end-user OAuth token. Public-content requests are keyed by content
-  resource rather than a user or device.</p>
+  resource rather than a user or device. On 6 August 2026 Quran Foundation
+  separately confirmed the identity, attribution and commercial/freemium
+  in-app display permission for the selected-ayah Tafsir al-Muyassar surface
+  without requiring a separate third-party licence.</p>
 
   <p>Sirran's Production integration runs on Cloudflare Workers so Quran
   Foundation credentials remain server-side and are never embedded in the app.
@@ -109,6 +114,29 @@
   <code>recitations:7</code>; this retained material is not linked to a Sirran
   account, device identifier, reading history, bookmarks, notes, or worship
   activity. Audio bytes are not retained in the backend content cache.</p>
+
+  <p>The Arabic tafsir path is distinct from that retained
+  translation/recitation flow. It runs only after affirmative QF consent, only
+  when the resolved reader language is Arabic, and only after the user selects
+  a specific ayah. The requested surah and ayah identifier and ordinary HTTPS
+  connection data pass through Sirran's server-side proxy; the tafsir response
+  is ephemeral and marked <code>private, no-store</code>. Sirran does not
+  prefetch, cache, download or retain the tafsir text, and does not create or
+  link it to an account, device identifier, reading history, bookmark, note,
+  subscription or advertising profile. The surface remains available
+  regardless of subscription status and contains no advertising, subscription
+  benefit or upsell. It is unavailable offline.</p>
+
+  <p>The source is Tafsir al-Muyassar (<span lang="ar" dir="rtl">التفسير
+  الميسر</span>), prepared by a committee of scholars under the supervision of
+  the King Fahd Glorious Quran Printing Complex. Quran Foundation requested one
+  localized visible credit and clarified that it is not a formal licence
+  condition. The Arabic-only surface uses
+  <span lang="ar" dir="rtl">التفسير الميسر — مجمع الملك فهد لطباعة المصحف
+  الشريف</span>; corresponding English documentation may use “Tafsir
+  al-Muyassar — King Fahd Glorious Quran Printing Complex”. Sirran is
+  independent and does not use Quran Foundation or Quran.com logos for this
+  surface.</p>
 
   <p>Sirran checks Quran Foundation Content Sync daily and applies reported
   updates, invalidations, and removals. After consent, Android may retain the
@@ -188,7 +216,7 @@
   profiling. The following services may receive only the information needed for
   the user-requested feature:</p>
   <ul>
-    <li><strong>Quran Foundation / Quran.com</strong> (consent-gated Android Quran content): Sirran requests the approved public Turkish translation, recitation catalogue, and user-selected audio using Quran resource identifiers. Sirran's backend initializes the approved public catalogue from direct snapshots and checks Content Sync daily. See <a href="https://quran.com/en/privacy">Quran.com Privacy</a>.</li>
+    <li><strong>Quran Foundation / Quran.com</strong> (consent-gated Android Quran content): Sirran requests the approved public Turkish translation, recitation catalogue, user-selected audio, and an Arabic user's explicitly selected Tafsir al-Muyassar ayah using Quran resource identifiers. The tafsir response is private/no-store and is not added to retained content or reading history. Sirran's backend initializes only the approved translation/recitation catalogue from direct snapshots and checks Content Sync daily. See <a href="https://quran.com/en/privacy">Quran.com Privacy</a>.</li>
     <li><strong>Cloudflare</strong> (QF reader, retained public-content synchronization, manifests, and delivery proxy; optional timetable adapter when enabled): processes ordinary connection/request metadata needed to provide the requested feature. Retained QF bundles contain public Quran content and catalogue metadata, not a Sirran user profile. See <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a>.</li>
     <li><strong>Public OpenStreetMap Overpass operators</strong> (Nearby Mosques only): receive the rounded coordinate and ordinary connection data described above. Public instances may be operated independently. See the <a href="https://osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation Privacy Policy</a> and the policy published by the selected instance, where available.</li>
     <li><strong>Google</strong> (Android/Wear OS): operates Google Play Billing, the Play store, and the Wear OS Data Layer described in this policy. See the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
@@ -235,7 +263,10 @@
   make a network request. On Android, after affirmative consent, the user may
   retain the Dar Al-Salam Center <code>translations:210</code> meal and
   user-selected <code>recitations:7</code> audio for offline use through the
-  separate data flow described above.</p>
+  separate retained data flow described above. Tafsir al-Muyassar ID
+  <code>16</code> is not bundled or retained; in an enabled Arabic reader it is
+  fetched only for a user-selected ayah through the ephemeral path described
+  above.</p>
   <p>Sirran preserves Quran text unchanged, presents excerpts in context, and
   shows source attribution. QF content is not used for advertising profiles,
   biometric identification, or machine-learning training.</p>
@@ -270,8 +301,10 @@
   resource identifier plus ordinary connection data such as IP address and
   request time; any IP address/resource-identifier combination visible to the
   infrastructure is handled by Cloudflare and Quran Foundation under their
-  published policies. Ordinary reader and audio-delivery responses are
-  <code>private, no-store</code>. Sirran's retained backend store contains only
+  published policies. Ordinary reader, tafsir and audio-delivery responses are
+  <code>private, no-store</code>. The selected-ayah tafsir body is not written
+  to Sirran's backend retained store or Android storage. Sirran's retained
+  backend store contains only
   integrity-validated public Quran-content bundles and catalogue metadata; it
   does not contain a QF user-data backup or reading-history profile. Approved
   content stored on Android remains in app-private, non-backed-up storage until
