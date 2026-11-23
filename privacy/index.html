@@ -45,33 +45,37 @@
   <header>
     <p class="eyebrow">Sirran</p>
     <h1>Privacy Policy</h1>
-    <p class="meta"><strong>Effective date:</strong> 6 August 2026</p>
-    <p class="meta"><strong>App:</strong> Sirran (iPhone, Apple Watch, Android phone, Wear OS)</p>
+    <p class="meta"><strong>Effective date:</strong> 23 November 2026</p>
+    <p class="meta"><strong>App:</strong> Sirran (iPhone, iPad, Apple Watch, Android phone, Wear OS)</p>
     <p class="meta"><strong>Publisher:</strong> Baris Demircan</p>
     <p class="meta"><strong>Contact:</strong> <a href="mailto:barisdemircan@outlook.com.tr">barisdemircan@outlook.com.tr</a></p>
   </header>
 
   <div class="callout">
-    Sirran has no user accounts, advertising SDK, advertising identifier, or
-    first-party analytics service. Prayer calculations, Qibla, bundled Quran
-    reading, and tasbih data are processed on your device. Optional Nearby
-    Mosques, official prayer-timetable, store, and Quran Foundation
-    online-content features make only the limited requests described below.
+    Sirran has no user accounts or first-party analytics service. Prayer
+    calculations, Qibla, bundled Quran reading, and tasbih data are processed
+    on your device. Android, Wear OS, and Apple Watch builds contain no
+    advertising SDK or advertising identifier. On iPhone and iPad (iOS),
+    free-tier builds integrate Google Mobile Ads (AdMob) with strict
+    general-audience (<code>G</code>) filters, Apple ATT, and Google UMP
+    consent, while keeping the Quran reader and Sirran Plus subscribers
+    completely ad-free.
   </div>
 
   <h2>What the publisher does not collect directly</h2>
   <ul>
     <li>We do <strong>not</strong> operate a backend account system or sign-in.</li>
     <li>We do <strong>not</strong> upload or retain a Quran reading-history profile, saved bookmarks, notes, prayer log, tasbih count, voice recordings, zakat figures, calendar entries, or keyboard input on a publisher-operated server. A user-invoked QF online-content request sends only the requested public-content identifier and ordinary connection data through the deployed Production private/no-store reader proxy, as described below.</li>
-    <li>We do <strong>not</strong> sell personal data. Third parties receive data only through the user-invoked network and store-purchase flows described below.</li>
-    <li>We do <strong>not</strong> use user data to build advertising profiles; sell, rent, mine, or repurpose Quran Foundation user data; or use notes, reflections, or other user-generated content to train artificial-intelligence models without the user's prior, separate, and explicit consent.</li>
+    <li>We do <strong>not</strong> sell personal data. Third parties receive data only through the user-invoked network, store-purchase, and (on iOS free tier) Google Mobile Ads flows described below.</li>
+    <li>We do <strong>not</strong> use worship or Quran Foundation user data to build advertising profiles; sell, rent, mine, or repurpose Quran Foundation user data; or use notes, reflections, or other user-generated content to train artificial-intelligence models without the user's prior, separate, and explicit consent.</li>
   </ul>
 
-  <h2>No advertising or analytics SDK</h2>
-  <p>The Android, iPhone, Apple Watch, and Wear OS builds contain no advertising
-  SDK, analytics SDK, or advertising-ID permission. Sirran Plus supports
-  independent development; it does not remove advertising because advertising
-  is absent for everyone.</p>
+  <h2>Advertising &amp; platform differences</h2>
+  <ul>
+    <li><strong>Android, Wear OS, and Apple Watch:</strong> Contain no advertising SDK, analytics SDK, or <code>AD_ID</code> permission.</li>
+    <li><strong>iPhone and iPad (iOS):</strong> Free-tier iOS builds use <strong>Google Mobile Ads (AdMob)</strong> and <strong>Google User Messaging Platform (UMP)</strong> with a strict <code>G</code> general-audience content ceiling and sensitive-category blocking so core worship features stay free. The Quran reading screen is always 100% ad-free, and active <strong>Sirran Plus</strong> subscribers see no ads.</li>
+    <li><strong>iOS Consent &amp; Tracking (ATT / UMP):</strong> EEA/UK consent is managed through Google UMP, and Apple App Tracking Transparency (ATT) is requested after onboarding. Declining ATT sends non-personalized contextual ad requests (<code>npa = 1</code>). When active on iPhone or iPad, Google's SDK may process IP-derived coarse location, device identifier (if ATT is authorized), advertising data, product interaction, crash data, performance data, and diagnostics under Google's privacy policy and Apple's SDK privacy manifest. Worship logs and Quran Foundation content are never shared with advertising SDKs.</li>
+  </ul>
 
   <h2>Quran Foundation ecosystem and Content APIs</h2>
   <p>Sirran is an independent product and is not an official application of,
@@ -141,13 +145,18 @@
   <p>Sirran checks Quran Foundation Content Sync daily and applies reported
   updates, invalidations, and removals. After consent, Android may retain the
   approved Turkish translation and recitation catalogue in app-private,
-  non-backed-up device storage. Audio is retained only after the user starts an
-  in-app download. Approved content may remain usable while a device is offline
-  for longer than seven days; when connectivity returns, Sirran synchronizes as
-  soon as reasonably possible and applies relevant changes. Audio files cannot
-  be exported or shared as standalone downloads or used outside Sirran. All
-  Quran Foundation reading and recitation content remains available regardless
-  of paid subscription status.</p>
+  non-backed-up device storage only while the app's effective language is
+  Turkish. For English or Arabic, the device manifest and local catalogue
+  contain only the approved recitation resource; the Turkish translation is
+  neither requested nor retained. Changing language makes the previous JSON
+  generation unavailable and deletes it. Audio is retained only after the user
+  starts an in-app download, and resource-7 audio is not deleted solely because
+  the app language changes. Approved content may remain usable while a device is
+  offline for longer than seven days; when connectivity returns, Sirran
+  synchronizes as soon as reasonably possible and applies relevant changes.
+  Audio files cannot be exported or shared as standalone downloads or used
+  outside Sirran. All Quran Foundation reading and recitation content remains
+  available regardless of paid subscription status.</p>
 
   <p>Sirran does not use end-user QF OAuth/OIDC, sign users into Quran
   Foundation accounts, or request user-data scopes. Any future QF account,
@@ -216,11 +225,11 @@
   profiling. The following services may receive only the information needed for
   the user-requested feature:</p>
   <ul>
-    <li><strong>Quran Foundation / Quran.com</strong> (consent-gated Android Quran content): Sirran requests the approved public Turkish translation, recitation catalogue, user-selected audio, and an Arabic user's explicitly selected Tafsir al-Muyassar ayah using Quran resource identifiers. The tafsir response is private/no-store and is not added to retained content or reading history. Sirran's backend initializes only the approved translation/recitation catalogue from direct snapshots and checks Content Sync daily. See <a href="https://quran.com/en/privacy">Quran.com Privacy</a>.</li>
+    <li><strong>Quran Foundation / Quran.com</strong> (consent-gated Android Quran content): Sirran requests the approved public Turkish translation only for effective Turkish; every supported language may request the recitation catalogue, user-selected audio, and an Arabic user's explicitly selected Tafsir al-Muyassar ayah using Quran resource identifiers. The tafsir response is private/no-store and is not added to retained content or reading history. Sirran's backend initializes the approved public catalogue from direct snapshots and checks Content Sync daily. See <a href="https://quran.com/en/privacy">Quran.com Privacy</a>.</li>
     <li><strong>Cloudflare</strong> (QF reader, retained public-content synchronization, manifests, and delivery proxy; optional timetable adapter when enabled): processes ordinary connection/request metadata needed to provide the requested feature. Retained QF bundles contain public Quran content and catalogue metadata, not a Sirran user profile. See <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a>.</li>
     <li><strong>Public OpenStreetMap Overpass operators</strong> (Nearby Mosques only): receive the rounded coordinate and ordinary connection data described above. Public instances may be operated independently. See the <a href="https://osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation Privacy Policy</a> and the policy published by the selected instance, where available.</li>
-    <li><strong>Google</strong> (Android/Wear OS): operates Google Play Billing, the Play store, and the Wear OS Data Layer described in this policy. See the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
-    <li><strong>Apple</strong> (iPhone/Apple Watch): operates the App Store and the operating-system services used for permissions and paired-device connectivity. See the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</li>
+    <li><strong>Google</strong> (Android/Wear OS &amp; iOS AdMob): operates Google Play Billing, the Play store, and the Wear OS Data Layer on Android/Wear OS, and provides Google Mobile Ads (AdMob) and UMP consent management on free-tier iPhone and iPad builds as described above. See the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
+    <li><strong>Apple</strong> (iPhone/iPad/Apple Watch): operates the App Store and the operating-system services used for permissions and paired-device connectivity. See the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</li>
     <li><strong>GitHub Pages</strong>: hosts this public policy and support site. Visiting the site is subject to the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</li>
   </ul>
   <p>Where a provider processes personal data on Sirran's behalf, the
@@ -248,7 +257,7 @@
     <li><strong>Existing local Zakat Vault data</strong> (Android): If figures were entered in a prior or reviewed build, they remain only on your device in an encrypted file protected by the phone's hardware keystore. The current release UI is hidden pending religious review. The figures are never transmitted, and there is no Zakat account or sync service.</li>
     <li><strong>Sirran Keyboard</strong> (optional, Android): if you enable the bundled phrase keyboard in system settings, it only inserts the phrase you tap into the text field. It does not read, log, store, or transmit anything you type.</li>
     <li><strong>Apple Watch sync:</strong> Prayer preferences and tasbih state are shared between your iPhone and Apple Watch using Apple's device connectivity. Sirran does not send that data to a publisher server.</li>
-    <li><strong>Wear OS Data Layer sync:</strong> The Android phone sends persistent Google Play services Data Items to paired Wear OS devices. These can include the exact effective phone coordinate, its accuracy and capture time (<code>capturedAt</code>), selected location/city, time zone, prayer method and madhab, tasbih label/count/target, remaining qada total, and active wird label/target. A Data Item is persistent until it is replaced or deleted and can be buffered while devices are disconnected. Google's <a href="https://developer.android.com/training/wearables/data/overview">Data Layer security overview</a> and <a href="https://developer.android.com/training/wearables/data/client-types">client-type reference</a> state that only the same package signed with the same certificate can access the channel; direct Bluetooth uses standard Bluetooth encryption, and cloud-routed transfers are end-to-end encrypted. Google Play services may use Google-owned servers when Bluetooth is unavailable. Sirran does not operate a server for this sync.</li>
+    <li><strong>Wear OS Data Layer sync:</strong> The Android phone sends persistent Google Play services Data Items to paired Wear OS devices. These can include the exact effective phone coordinate, its accuracy and capture time (<code>capturedAt</code>), selected location/city, time zone, prayer method and madhab, and a bounded two-day schedule of resolved prayer instants with minimal source/trust/fallback and user-adjustment flags. They can also include tasbih label/count/target, remaining qada total, and active wird label/target. A Data Item is persistent until it is replaced or deleted and can be buffered while devices are disconnected. Google's <a href="https://developer.android.com/training/wearables/data/overview">Data Layer security overview</a> and <a href="https://developer.android.com/training/wearables/data/client-types">client-type reference</a> state that only the same package signed with the same certificate can access the channel; direct Bluetooth uses standard Bluetooth encryption, and cloud-routed transfers are end-to-end encrypted. Google Play services may use Google-owned servers when Bluetooth is unavailable. Sirran does not operate a server for this sync.</li>
   </ul>
 
   <h2>Bundled Quran content</h2>
